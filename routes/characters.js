@@ -18,7 +18,7 @@ router.get("/characters", async (req, res) => {
     }
 
     const response = await axios.get(
-      `https://lereacteur-marvel-api.herokuapp.com/characters?${query}&limit=10`
+      `https://lereacteur-marvel-api.herokuapp.com/characters?${query}`
     );
     console.log(response.data);
     // console.log("page", req.query.skip);
