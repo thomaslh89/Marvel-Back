@@ -15,9 +15,11 @@ router.get("/comics", async (req, res) => {
     if (req.query.skip) {
       query = query + `&skip=${(req.query.skip - 1) * 100}`;
     }
-
+    if (req.query.limit) {
+      query += `&limit=${req.query.limit}`;
+    }
     const response = await axios.get(
-      `https://lereacteur-marvel-api.herokuapp.com/comics?${query}&limit=10`
+      `https://lereacteur-marvel-api.herokuapp.com/comics?${query}`
     );
     console.log(response.data);
     return res.status(200).json(response.data);
