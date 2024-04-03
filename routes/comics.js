@@ -13,7 +13,8 @@ router.get("/comics", async (req, res) => {
       query = query + `&title=${req.query.title}`;
     }
     if (req.query.skip) {
-      query = query + `&skip=${(req.query.skip - 1) * 100}`;
+      query =
+        query + `&skip=${(req.query.skip - 1) * (req.query.limit || 100)}`;
     }
     if (req.query.limit) {
       query += `&limit=${req.query.limit}`;
